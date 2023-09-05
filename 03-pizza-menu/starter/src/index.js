@@ -73,6 +73,13 @@ function Menu() {
 }
 
 function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
+  console.log(isOpen);
+
   return <footer>{new Date().toLocaleTimeString()} We're currently open!</footer>;
   // return React.createElement("footer", null, "We're currently open!");
 }
@@ -82,7 +89,7 @@ function Pizza() {
     <div>
       <img src="pizzas/margherita.jpg" alt="pizza spinaci"></img>
       <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+      <p>Tomato, mozarella, sp inach, and ricotta cheese</p>
     </div>
   );
 }
