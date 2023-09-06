@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -48,7 +49,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -57,17 +58,42 @@ function App() {
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  const style = {};
+
+  return (
+    <header className="header footer">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Fast React Pizza Co.</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, sp inach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={10}
+      />
+
+      <Pizza name="Pizza Funghi" ingredients="Tomato, mushrooms" photoName="pizzas/funghi.jpg" price={12} />
+    </main>
+  );
+}
+
+function Pizza(props) {
+  console.log(props);
+
+  return (
+    <div>
+      <img src={props.photoName} alt={props.name}></img>
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
     </div>
   );
 }
@@ -80,18 +106,8 @@ function Footer() {
 
   console.log(isOpen);
 
-  return <footer>{new Date().toLocaleTimeString()} We're currently open!</footer>;
+  return <footer className="footer">{new Date().toLocaleTimeString()} We're currently open!</footer>;
   // return React.createElement("footer", null, "We're currently open!");
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/margherita.jpg" alt="pizza spinaci"></img>
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, sp inach, and ricotta cheese</p>
-    </div>
-  );
 }
 
 // React v18
