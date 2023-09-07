@@ -61,7 +61,7 @@ function Header() {
   const style = {};
 
   return (
-    <header className="header footer">
+    <header className="header">
       <h1 style={style}>Fast React Pizza Co.</h1>
     </header>
   );
@@ -94,7 +94,7 @@ function Pizza(props) {
   console.log(props);
 
   return (
-    <li>
+    <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.name}></img>
       <div>
         <h3>{props.pizzaObj.name}</h3>
