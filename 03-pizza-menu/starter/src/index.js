@@ -75,12 +75,14 @@ function Menu() {
     <main className="menu">
       <h2>Fast React Pizza Co.</h2>
 
-      {numPizzas > 0 && (
+      {numPizzas > 0 ? (
         <ul className="pizzas">
           {pizzas.map((pizza) => {
             return <Pizza pizzaObj={pizza} key={pizza.name} />;
           })}
         </ul>
+      ) : (
+        <p>We're still working on our menu. Please come back later:)</p>
       )}
 
       {/* <ul className="pizzas">
@@ -126,11 +128,15 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>We're open until until {closeHour}:00. Come visit us or order online.</p>
           <button className="btn">Order</button>
         </div>
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00
+        </p>
       )}
     </footer>
   );
